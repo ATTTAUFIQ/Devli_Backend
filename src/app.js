@@ -1,32 +1,14 @@
 import express from "express";
-import { adminAuth,userAuth } from "./middleware/auth.js";
+import { connectDB } from "./config/db.js";
 const app = express();
 
-app.use("/admin", adminAuth);
-app.use("/user",userAuth);
-
-app.use("/admin/getalldata", (req, res) => {
-  res.send("Founded all the data");
-});
-
-app.use("/admin/deleteUser", (req, res) => {
- throw new Error("Errors")
-  res.send("deleted all the data");
-});
-
-app.use("/admin/addData", (req, res) => {
-  res.send("Added all the data");
-});
-app.use("/",(err,req, res,next) => {
-  if(err)
-  {
-    res.status(500).send("err")
-  }
- 
-});
-
-
-
-app.listen(8080, () => {
-  console.log("Server Running on Port 8080");
-});
+connectDB()
+  .then((res) => {
+    console.log("DB connected Success!");
+    app.listen(8080, () => {
+      console.log("Server Running on Port 8080");
+    });
+  })
+  .catch((err) => {
+    console.log("Connection failed" + err);
+  });
