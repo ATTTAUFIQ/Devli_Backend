@@ -10,15 +10,22 @@ app.use("/admin/getalldata", (req, res) => {
 });
 
 app.use("/admin/deleteUser", (req, res) => {
+ throw new Error("Errors")
   res.send("deleted all the data");
 });
 
 app.use("/admin/addData", (req, res) => {
   res.send("Added all the data");
 });
-app.use((req, res) => {
-  res.send("Welcome to the Devli");
+app.use("/",(err,req, res,next) => {
+  if(err)
+  {
+    res.status(500).send("err")
+  }
+ 
 });
+
+
 
 app.listen(8080, () => {
   console.log("Server Running on Port 8080");
