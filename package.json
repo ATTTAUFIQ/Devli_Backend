@@ -1,0 +1,19 @@
+{
+  "name": "devli_backend",
+  "version": "1.0.0",
+  "description": "Social Media File",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ATTTAUFIQ/Devli_Backend.git"
+  },
+  "author": "Taufiq",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ATTTAUFIQ/Devli_Backend/issues"
+  },
+  "homepage": "https://github.com/ATTTAUFIQ/Devli_Backend#readme"
+}
